@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Executar Resta Um",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-Command",
+                "if (Get-Process main -ErrorAction SilentlyContinue) { Stop-Process -Name main -Force }; & 'C:\\raylib\\w64devkit\\bin\\gcc.exe' main_3d.c resta_um.c -o main.exe -IC:\\raylib\\raylib\\src -LC:\\raylib\\raylib\\src -lraylib -lopengl32 -lgdi32 -lwinmm; if ($LASTEXITCODE -eq 0) { & '.\\main.exe' }"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            }
+        }
+    ]
+}
